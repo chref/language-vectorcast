@@ -1,0 +1,68 @@
+scopeName: 'source.vectorcast'
+name: 'VectorCAST'
+fileTypes: [
+  'tst'
+]
+patterns: [
+  {
+    match: '[:,.]'
+    name: 'keyword.operator.vectorcast'
+  }
+  {
+    match: '^\\s*--.*$'
+    name: 'comment.line.vectorcast'
+  }
+  {
+    match: '^TEST\\.(?:NEW|END)\\b'
+    name: 'keyword.vectorcast'
+  }
+  {
+    match: '^TEST\\.(?:UNIT|SUBPROGRAM|NAME)(:)(.*)$'
+    name: 'keyword.vectorcast'
+    captures:
+      1:
+        name: 'keyword.operator.vectorcast'
+      2:
+        name: 'support.variable.vectorcast'
+  }
+  {
+    match: '^TEST\\.(?:SCRIPT_FEATURE|VALUE|EXPECTED)(:)'
+    name: 'keyword.vectorcast'
+    captures:
+      1:
+        name: 'keyword.operator.vectorcast'
+  }
+  {
+    begin: '^TEST\\.NOTES(:)'
+    end: '^TEST\\.END_NOTES(:)'
+    name: 'keyword.vectorcast'
+    contentName: 'string.other.vectorcast'
+    beginCaptures:
+      1:
+        name: 'keyword.operator.vectorcast'
+    endCaptures:
+      1:
+        name: 'keyword.operator.vectorcast'
+  }
+  {
+    begin: '^TEST\\.(\\w+)_USER_CODE(:)(.*)$'
+    end: '^TEST\\.END_(\\1)_USER_CODE(:)'
+    name: 'keyword.vectorcast'
+    contentName: 'string.other.vectorcast'
+    beginCaptures:
+      2:
+        name: 'keyword.operator.vectorcast'
+      3:
+        name: 'entity.name.function.vectorcast'
+    endCaptures:
+      2:
+        name: 'keyword.operator.vectorcast'
+  }
+  {
+    match: '[^:]+(:)'
+    name: 'entity.name.function.vectorcast'
+    captures:
+      1:
+        name: 'keyword.operator.vectorcast'
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "name": "language-vectorcast",
+  "version": "0.0.0",
+  "description": "VectorCAST language support in Atom",
+  "author": {
+    "name": "Christof Efkemann",
+    "email": "chref@verified.de"
+  },
+  "keywords": [
+    "language",
+    "vectorcast"
+  ],
+  "repository": "https://github.com/chref/language-vectorcast",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
