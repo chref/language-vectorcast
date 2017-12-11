@@ -5,16 +5,8 @@ fileTypes: [
 ]
 patterns: [
   {
-    match: '[:,.]'
-    name: 'keyword.operator.vectorcast'
-  }
-  {
     match: '^\\s*--.*$'
-    name: 'comment.line.vectorcast'
-  }
-  {
-    match: '^TEST\\.(?:NEW|END)\\b'
-    name: 'keyword.vectorcast'
+    name: 'string.regexp.vectorcast'
   }
   {
     match: '^TEST\\.(?:UNIT|SUBPROGRAM|NAME)(:)(.*)$'
@@ -26,17 +18,10 @@ patterns: [
         name: 'support.variable.vectorcast'
   }
   {
-    match: '^TEST\\.(?:SCRIPT_FEATURE|VALUE|EXPECTED)(:)'
-    name: 'keyword.vectorcast'
-    captures:
-      1:
-        name: 'keyword.operator.vectorcast'
-  }
-  {
     begin: '^TEST\\.NOTES(:)'
     end: '^TEST\\.END_NOTES(:)'
     name: 'keyword.vectorcast'
-    contentName: 'string.other.vectorcast'
+    contentName: 'comment.line.vectorcast'
     beginCaptures:
       1:
         name: 'keyword.operator.vectorcast'
@@ -48,7 +33,7 @@ patterns: [
     begin: '^TEST\\.(\\w+)_USER_CODE(:)(.*)$'
     end: '^TEST\\.END_(\\1)_USER_CODE(:)'
     name: 'keyword.vectorcast'
-    contentName: 'string.other.vectorcast'
+    contentName: 'keyword.operator.vectorcast'
     beginCaptures:
       2:
         name: 'keyword.operator.vectorcast'
@@ -59,10 +44,22 @@ patterns: [
         name: 'keyword.operator.vectorcast'
   }
   {
-    match: '[^:]+(:)'
-    name: 'entity.name.function.vectorcast'
+    match: '^TEST\\.[^:]+$'
+    name: 'keyword.vectorcast'
+  }
+  {
+    match: '^TEST\\.[^:]+(:)([^:]*)(:)?'
+    name: 'keyword.vectorcast'
     captures:
       1:
         name: 'keyword.operator.vectorcast'
+      2:
+        name: 'entity.name.function.vectorcast'
+      3:
+        name: 'keyword.operator.vectorcast'
+  }
+  {
+    match: '.+'
+    name: 'keyword.operator.vectorcast'
   }
 ]
